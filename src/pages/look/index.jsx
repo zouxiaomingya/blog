@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
 // import MonacoEditor from 'react-monaco-editor';
-import { code } from './code'
-console.log(code);
+// import { code } from './code'
+// console.log(code);
 function Look() {
   const editorDidMount = (editor, monaco) => {
     console.log('editorDidMount', editor);
