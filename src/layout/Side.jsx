@@ -1,30 +1,33 @@
 import React from 'react';
 import { Layout, Menu, Icon } from 'antd';
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 
 // const { SubMenu } = Menu;
 const { Sider } = Layout;
-function Side() {
+function Side({ location }) {
+  console.log(111);
+  const { pathname } = location;
+  console.log(pathname);
   return (
     <Sider width={200} style={{ background: '#fff' }}>
       <Menu
         mode="inline"
-        defaultSelectedKeys={['1']}
+        selectedKeys={[pathname]}
         style={{ height: '100%', borderRight: 0 }}
       >
-        <Menu.Item key="1">
+        <Menu.Item key="/home">
           <Link to='/home'>
             <Icon type="laptop" />
             Home
           </Link>
         </Menu.Item>
-        <Menu.Item key="2">
+        <Menu.Item key="/look">
           <Link to='/look'>
             <Icon type="laptop" />
             Look
           </Link>
         </Menu.Item>
-        <Menu.Item key="3">
+        <Menu.Item key="/read">
           <Link to='/read'>
             <Icon type="laptop" />
             Read
@@ -35,4 +38,4 @@ function Side() {
   )
 }
 
-export default Side;
+export default withRouter(Side);
