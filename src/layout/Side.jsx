@@ -5,9 +5,7 @@ import { Link, withRouter } from "react-router-dom";
 // const { SubMenu } = Menu;
 const { Sider } = Layout;
 function Side({ location }) {
-  console.log(111);
   const { pathname } = location;
-  console.log(pathname);
   return (
     <Sider width={200} style={{ background: '#fff' }}>
       <Menu
