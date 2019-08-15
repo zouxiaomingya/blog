@@ -1,24 +1,11 @@
-import React, { Fragment, useRef, useEffect, useState } from 'react';
+import React, { Fragment, useRef, useEffect, useState, lazy, Suspense} from 'react';
 import { Button } from 'antd';
-// import MonacoEditor from 'react-monaco-editor';
+import Monaco from '../../common/Monaco';
 import { code } from './code'
-import * as monaco from 'monaco-editor/esm/vs/editor/editor.api.js';
+
+// const Monaco = lazy(() => import('../../common/Monaco'))
 function Look() {
-  const monacoRef = useRef(null)
-  const monacoInstance = useRef(null)
-  useEffect(() => {
-    monacoInstance.current = monaco.editor.create(monacoRef.current, {
-      value: code,
-      language: "java",
-      automaticLayout: true, // 自适应
-      theme: 'vs', // 编辑主题
-      // original='//safdafcode1',
-    })
-    console.log(monacoInstance);
-    return () => {
-      monacoInstance.current.dispose();//使用完成销毁实例
-    }
-  })
+  const [tempCode, setCode ] = useState('dom')
   const [count, setCount] = useState(0)
   const usePrevious = (state) => {
     const ref = useRef();
@@ -30,14 +17,23 @@ function Look() {
   const handleAdd = () => {
     setCount(state => ++state)
   }
+  const handleAddCode = () => {
+    setCode(tempCode + '\n' + 'Dom')
+  }
   return (
     <Fragment>
-      <div id="monaco" ref={monacoRef} style={{ margin: '0 20px', height: 400 }} />
+      {/* <Suspense fallback={<div>loading...</div>}> 
+        <Monaco code={code} />
+      </Suspense> */}
+      <Monaco code={code} />
+      <hr />
+      <Monaco code={tempCode} />
       <div className="App">
         <header className="App-header">
           <p>当前的数：{count}</p>
           <p>上一个的数：{usePrevious(count)}</p>
           <Button onClick={handleAdd}>+1</Button>
+          <Button onClick={handleAddCode}>增加代码</Button>
         </header>
       </div>
     </Fragment>

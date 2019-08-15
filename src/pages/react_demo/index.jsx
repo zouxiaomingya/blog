@@ -1,5 +1,4 @@
-import React, { Fragment, useState } from 'react';
-import { Input } from 'antd';
+import React, { Fragment } from 'react';
 import Monaco from '../../common/Monaco'
 import { code } from './code'
 function EventDemo() {
@@ -42,4 +41,5 @@ function EventDemo() {
     </Fragment>
   )
 }
+
 export default EventDemo;

@@ -1,11 +1,10 @@
-import React, { Fragment, useRef, useEffect, useState } from 'react';
-import { Button } from 'antd';
-// import MonacoEditor from 'react-monaco-editor';
+import React, { useRef, useEffect, memo} from 'react';
 import * as monaco from 'monaco-editor/esm/vs/editor/editor.api.js';
 import * as languageObj from 'monaco-editor/min/vs/basic-languages/typescript/typescript';
 monaco.languages.register({ id: 'typescript' })
 monaco.languages.setMonarchTokensProvider('typescript',languageObj.language)
 function Monaco({ code }) {
+  console.log('Monaco_render');
   const rowNum = code.split(/\r\n|\r|\n/).length
   
   const monacoRef = useRef(null)
@@ -26,4 +25,4 @@ function Monaco({ code }) {
     <div id="monaco" ref={monacoRef} style={{ margin: '0 20px', minHeight: 18*rowNum }} />
   )
 }
-export default Monaco;
+export default memo(Monaco);
