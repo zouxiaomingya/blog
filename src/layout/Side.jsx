@@ -4,7 +4,7 @@ import { Link, withRouter } from "react-router-dom";
 
 // const { SubMenu } = Menu;
 const { Sider } = Layout;
-function Side({ location }) {
+function Side({ location, routerConfig }) {
   const { pathname } = location;
   return (
     <Sider width={200} style={{ background: '#fff' }}>
@@ -13,24 +13,14 @@ function Side({ location }) {
         selectedKeys={[pathname]}
         style={{ height: '100%', borderRight: 0 }}
       >
-        <Menu.Item key="/home">
-          <Link to='/home'>
-            <Icon type="laptop" />
-            Home
+        {routerConfig.map((item) => (
+          <Menu.Item key={item.path}>
+            <Link to={item.path}>
+              <Icon type={item.icon} />
+              {item.text}
           </Link>
-        </Menu.Item>
-        <Menu.Item key="/look">
-          <Link to='/look'>
-            <Icon type="laptop" />
-            Look
-          </Link>
-        </Menu.Item>
-        <Menu.Item key="/read">
-          <Link to='/read'>
-            <Icon type="laptop" />
-            Read
-          </Link>
-        </Menu.Item>
+          </Menu.Item>
+        ))}
       </Menu>
     </Sider>
   )

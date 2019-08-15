@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 function ModalWrap({ children }) {
   const [visible, setVisible] = useState(false);
   const onOpen = () => setVisible(true);

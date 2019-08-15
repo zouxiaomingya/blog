@@ -8,16 +8,35 @@ import Home from './pages/home';
 import Look from './pages/look';
 import Read from './pages/read';
 import Page404 from './pages/Page404';
-
+import EventDemo from './pages/react_demo';
 
 const { Content } = Layout;
 function App() {
+  const routerConfig = [
+    {
+      path: '/home',
+      icon: 'laptop',
+      text:'Home',
+    }, {
+      path: '/look',
+      icon: 'laptop',
+      text:'Look',
+    }, {
+      path: '/read',
+      icon: 'laptop',
+      text:'Read',
+    }, {
+      path: '/react',
+      icon: 'laptop',
+      text:'React的eventv报错',
+    },
+  ]
   return (
     <BrowserRouter>
       <Layout>
         <Head />
         <Layout style={{ minHeight: 'calc(100vh - 64px)' }}>
-          <Side />
+          <Side routerConfig={routerConfig}/>
           <Layout style={{ padding: '0 24px 24px' }}>
             <Content
               style={{
@@ -32,7 +51,8 @@ function App() {
                 <Route exact path="/home" component={Home} />
                 <Route exact path="/look" component={Look} />
                 <Route exact path="/read" component={Read} />
-                <Route component={Page404}/>
+                <Route exact path="/react" component={EventDemo} />
+                <Route component={Page404} />
               </Switch>
             </Content>
           </Layout>
