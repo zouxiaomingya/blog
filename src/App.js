@@ -4,11 +4,15 @@ import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
 import Head from './layout/Head.jsx';
 import Side from './layout/Side.jsx';
 
+// 路由界面
 import Home from './pages/home';
 import Look from './pages/look';
 import Read from './pages/read';
-import Page404 from './pages/Page404';
+import Acticle from './pages/article'
 import EventDemo from './pages/react_demo';
+
+// 404 界面
+import Page404 from './pages/Page404';
 
 const { Content } = Layout;
 function App() {
@@ -16,19 +20,28 @@ function App() {
     {
       path: '/home',
       icon: 'laptop',
-      text:'Home',
+      text: 'Home',
+      component: Home,
     }, {
       path: '/look',
       icon: 'laptop',
-      text:'Look',
+      text: 'Look',
+      component: Look,
     }, {
       path: '/read',
       icon: 'laptop',
-      text:'Read',
+      text: 'Read',
+      component: Read,
     }, {
       path: '/react',
       icon: 'laptop',
-      text:'React的eventv报错',
+      text: 'React的eventv报错',
+      component: EventDemo,
+    }, {
+      path: '/article',
+      icon: 'laptop',
+      text: '文章',
+      component: Acticle,
     },
   ]
   return (
@@ -36,7 +49,7 @@ function App() {
       <Layout>
         <Head />
         <Layout style={{ minHeight: 'calc(100vh - 64px)' }}>
-          <Side routerConfig={routerConfig}/>
+          <Side routerConfig={routerConfig} />
           <Layout style={{ padding: '0 24px 24px' }}>
             <Content
               style={{
@@ -48,10 +61,9 @@ function App() {
             >
               <Switch>
                 <Redirect exact from='/' to='/home' />
-                <Route exact path="/home" component={Home} />
-                <Route exact path="/look" component={Look} />
-                <Route exact path="/read" component={Read} />
-                <Route exact path="/react" component={EventDemo} />
+                {routerConfig.map(({ path, component }) => (
+                  <Route exact path={path} component={component} />
+                ))}
                 <Route component={Page404} />
               </Switch>
             </Content>
