@@ -4,7 +4,7 @@ import * as languageObj from 'monaco-editor/min/vs/basic-languages/typescript/ty
 monaco.languages.register({ id: 'typescript' })
 monaco.languages.setMonarchTokensProvider('typescript',languageObj.language)
 function Monaco({ code }) {
-  console.log('Monaco_render');
+  // 获取行数
   const rowNum = code.split(/\r\n|\r|\n/).length
   
   const monacoRef = useRef(null)

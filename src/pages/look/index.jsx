@@ -1,4 +1,4 @@
-import React, { Fragment, useRef, useEffect, useState, lazy, Suspense} from 'react';
+import React, { Fragment, useRef, useEffect, useState, Suspense} from 'react';
 import { Button } from 'antd';
 import Monaco from '../../common/Monaco';
 import { code } from './code'
@@ -18,14 +18,14 @@ function Look() {
     setCount(state => ++state)
   }
   const handleAddCode = () => {
-    setCode(tempCode + '\n' + 'Dom')
+    setCode(tempCode + '\nDom')
   }
   return (
     <Fragment>
-      {/* <Suspense fallback={<div>loading...</div>}> 
+      <Suspense fallback={<div>loading...</div>}> 
         <Monaco code={code} />
-      </Suspense> */}
-      <Monaco code={code} />
+      </Suspense>
+      {/* <Monaco code={code} /> */}
       <hr />
       <Monaco code={tempCode} />
       <div className="App">
