@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useCallback, Fragment } from 'react';
 import { Button } from 'antd';
 
-console.log(useCallback);
 function UseApi() {
   const [num, setNum] = useState(0);
   console.log(num);
