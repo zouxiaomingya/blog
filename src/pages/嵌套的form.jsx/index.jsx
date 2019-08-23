@@ -1,10 +1,11 @@
-import React from 'react';
-import { Form, Input } from 'antd';
+import React, { useState } from 'react';
+import { Form, Input, Button, Icon } from 'antd';
 
 const { Item: FormItem } = Form
 function ComplexForm({ form }) {
-  const { getFieldDecorator } = form
-  console.log();
+  console.log('render');
+  const { getFieldDecorator, validateFields } = form
+  const [numArr, setNumArr] = useState([1,2]);
   const formItemLayout = {
     labelCol: {
       xs: { span: 24 },
@@ -21,33 +22,75 @@ function ComplexForm({ form }) {
       sm: { span: 20, offset: 4 },
     },
   };
-  const config = [
+  const getConfig = (k) => [
+    // {
+    //   label: '成员',
+    //   id: `member[${k}]`,
+    //   // initialValue: '1111',
+    //   rules: [{ required: true, message: '请填写姓名' }],
+    //   content: <Input />,
+    // },
     {
-      label: '姓名',
-      id: 'name',
-      initialValue: '1111',
-      rules: [{ required: true, message: '请填写姓名' }],
+      label: 'name',
+      id: `name[${k}]`,
+      rules: [{ required: true, message: '请填写️年龄' }],
       content: <Input />,
     },
     {
-      label: '年龄',
-      id: 'age',
+      label: 'age',
+      id: `age[${k}]`,
       rules: [{ required: true, message: '请填写️年龄' }],
       content: <Input />,
-    }
+    },
   ]
+  const add = () => {
+    setNumArr([...numArr, numArr.length])
+  };
+
+  const onDelete = (index) => {
+    console.log(numArr);
+    delete numArr[index]
+    console.log(numArr);
+    setNumArr([...numArr])
+  }
+
+  const onSubmit = () => {
+    validateFields((err, value)=>{
+      if(err) return;
+      console.log(value);
+    })
+  }
   return (
     <Form>
       {
-        config.map(({ label, id, initialValue, rules, content }) => (
-          <FormItem key={id} label={label} {...formItemLayout}>
-            {getFieldDecorator(id, {
-              initialValue,
-              rules,
-            })(content)}
-          </FormItem>
-        ))
+        numArr.map((item, index)=>{
+          console.log(item);
+          return item && getConfig(index).map(({ label, id, initialValue, rules, content }) => (
+            <FormItem key={id} label={label} {...formItemLayout}>
+              {getFieldDecorator(id, {
+                initialValue,
+                rules,
+              })(content)}
+              {
+                numArr.length && (
+                  <Button onClick={()=>{onDelete(index)}}>delete</Button>
+                )
+              }
+            </FormItem>
+          ))
+        })
       }
+      
+      <Form.Item {...formItemLayoutWithOutLabel}>
+        <Button type="dashed" onClick={add} style={{ width: '60%' }}>
+          <Icon type="plus" /> Add field
+          </Button>
+      </Form.Item>
+      <Form.Item {...formItemLayoutWithOutLabel}>
+        <Button type="primary" onClick={onSubmit} style={{ width: '60%' }}>
+          <Icon type="plus" /> submit
+          </Button>
+      </Form.Item>
     </Form>
   )
 }
