@@ -47,10 +47,11 @@ export const myRouterConfig = [
 const requireContext = require.context('./pages', true, /^\.\/.*\/index\.jsx$/)
 let config = [];
 const requireArr = requireContext.keys()
-requireArr.forEach((key, index) => {
+requireArr.forEach((_key, index) => {
   // const path = key.split('/')[1]
   const myPath = myRouterConfig[index].path
   const myPathText = myRouterConfig[index].text
+  const key = requireArr.find(item => item.indexOf(myPath) !== -1)
   const model = requireContext(key)
   config[index] = {
     // path: `/${myPath}`,
