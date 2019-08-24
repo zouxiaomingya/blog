@@ -3,7 +3,6 @@ import { Form, Input, Button, Icon } from 'antd';
 
 const { Item: FormItem } = Form
 function ComplexForm({ form }) {
-  console.log('render');
   const { getFieldDecorator, validateFields } = form
   const [numArr, setNumArr] = useState([1,2]);
   const formItemLayout = {
@@ -23,13 +22,6 @@ function ComplexForm({ form }) {
     },
   };
   const getConfig = (k) => [
-    // {
-    //   label: '成员',
-    //   id: `member[${k}]`,
-    //   // initialValue: '1111',
-    //   rules: [{ required: true, message: '请填写姓名' }],
-    //   content: <Input />,
-    // },
     {
       label: 'name',
       id: `name[${k}]`,
@@ -48,9 +40,7 @@ function ComplexForm({ form }) {
   };
 
   const onDelete = (index) => {
-    console.log(numArr);
     delete numArr[index]
-    console.log(numArr);
     setNumArr([...numArr])
   }
 
@@ -64,7 +54,6 @@ function ComplexForm({ form }) {
     <Form>
       {
         numArr.map((item, index)=>{
-          console.log(item);
           return item && getConfig(index).map(({ label, id, initialValue, rules, content }) => (
             <FormItem key={id} label={label} {...formItemLayout}>
               {getFieldDecorator(id, {

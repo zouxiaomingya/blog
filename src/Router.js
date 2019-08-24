@@ -5,47 +5,61 @@
 // import Acticle from './pages/article'
 // import EventDemo from './pages/react_demo';
 
+export const myRouterConfig = [
+  {
+    path: '/home',
+    icon: 'laptop',
+    text: 'Home',
+  }, {
+    path: '/look',
+    icon: 'laptop',
+    text: 'Look',
+  }, {
+    path: '/read',
+    icon: 'laptop',
+    text: 'Read',
+  }, {
+    path: '/article',
+    icon: 'laptop',
+    text: '文章',
+  },
+  {
+    path: '/useApi',
+    icon: 'laptop',
+    text: 'useApi',
+  },
+  {
+    path: '/react_persist',
+    icon: 'laptop',
+    text: 'react合成event',
+  },
+  {
+    path: '/engineering',
+    icon: 'laptop',
+    text: '工程化',
+  },
+  {
+    path: '/dynamicForm',
+    icon: 'laptop',
+    text: '动态表单',
+  },
+]
 const requireContext = require.context('./pages', true, /^\.\/.*\/index\.jsx$/)
 let config = [];
 const requireArr = requireContext.keys()
 requireArr.forEach((key, index) => {
-  const path = key.split('/')[1]
+  // const path = key.split('/')[1]
+  const myPath = myRouterConfig[index].path
+  const myPathText = myRouterConfig[index].text
   const model = requireContext(key)
   config[index] = {
-    path: `/${path}`,
+    // path: `/${myPath}`,
+    path: myPath,
     icon: 'laptop',
-    text: path,
+    text: myPathText,
     component: model.default,
   }
 })
 export const routerConfig = config;
 
-// export const routerConfig = [
-//   {
-//     path: '/home',
-//     icon: 'laptop',
-//     text: 'Home',
-//     component: Home,
-//   }, {
-//     path: '/look',
-//     icon: 'laptop',
-//     text: 'Look',
-//     component: Look,
-//   }, {
-//     path: '/read',
-//     icon: 'laptop',
-//     text: 'Read',
-//     component: Read,
-//   }, {
-//     path: '/react',
-//     icon: 'laptop',
-//     text: 'React的eventv报错',
-//     component: EventDemo,
-//   }, {
-//     path: '/article',
-//     icon: 'laptop',
-//     text: '文章',
-//     component: Acticle,
-//   },
-// ]
 
