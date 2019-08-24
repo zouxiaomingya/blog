@@ -43,6 +43,11 @@ export const myRouterConfig = [
     icon: 'laptop',
     text: '动态表单',
   },
+  {
+    path: '/test',
+    icon: 'laptop',
+    text: '测试',
+  },
 ]
 const requireContext = require.context('./pages', true, /^\.\/.*\/index\.jsx$/)
 let config = [];
@@ -51,7 +56,9 @@ requireArr.forEach((_key, index) => {
   // const path = key.split('/')[1]
   const myPath = myRouterConfig[index].path
   const myPathText = myRouterConfig[index].text
+  // 通过 自己配置的 path 去匹配 requireArr 的 key；
   const key = requireArr.find(item => item.indexOf(myPath) !== -1)
+  // 根据 key 去获取组件
   const model = requireContext(key)
   config[index] = {
     // path: `/${myPath}`,
