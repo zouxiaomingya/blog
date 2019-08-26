@@ -11,14 +11,10 @@ function App() {
     console.log('count为偶数');
     [age, setAge] = useState(16);
     [name, setName] = useState('Don');
-
   }
   const handleAdd = () => {
     setCount(count+1)
   };
-  console.log(`name= ${name}`);
-  console.log(`age= ${age}`);
-  console.log('---------');
   return (
     <div>
       <p>姓名: {name}</p>

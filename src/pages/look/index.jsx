@@ -3,7 +3,6 @@ import { Button } from 'antd';
 import Monaco from '../../common/Monaco';
 import { code } from './code'
 
-// const Monaco = lazy(() => import('../../common/Monaco'))
 function Look() {
   const [tempCode, setCode ] = useState('dom')
   const [count, setCount] = useState(0)
@@ -25,7 +24,6 @@ function Look() {
       <Suspense fallback={<div>loading...</div>}> 
         <Monaco code={code} />
       </Suspense>
-      {/* <Monaco code={code} /> */}
       <hr />
       <Monaco code={tempCode} />
       <div className="App">
