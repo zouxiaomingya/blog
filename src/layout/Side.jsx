@@ -6,6 +6,7 @@ import { Link, withRouter } from "react-router-dom";
 const { Sider } = Layout;
 function Side({ location, routerConfig }) {
   const { pathname } = location;
+  console.log(routerConfig);
   return (
     <Sider width={200} style={{ background: '#fff' }}>
       <Menu

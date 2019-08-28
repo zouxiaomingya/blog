@@ -1,8 +1,4 @@
-import React, { useState, useEffect } from 'react';
-import Monaco from '../../common/Monaco';
-import { code } from './code'
-
-function App() {
+export const code = `function App() {
   const [count, setCount] = useState(1);
   let name, setName, age, setAge;
   if (count & 1) {
@@ -19,11 +15,10 @@ function App() {
   };
   return (
     <div>
-      <Monaco code={code} />
+      <Monaco code={} />
       <p>姓名: {name}</p>
       <p>年龄: {age}</p>
       <button onClick={handleAdd}> count + 1 </button>
     </div>
   );
-}
-export default App;
+}`
