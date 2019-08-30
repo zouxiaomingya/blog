@@ -48,14 +48,25 @@ export const myRouterConfig = [
     icon: 'laptop',
     text: '测试',
   },
+  {
+    path: '/obj',
+    icon: 'laptop',
+    text: '对象',
+  },
 ]
 const requireContext = require.context('./pages', true, /^\.\/.*\/index\.jsx$/)
 let config = [];
 const requireArr = requireContext.keys()
 requireArr.forEach((_key, index) => {
   // const path = key.split('/')[1]
-  const myPath = myRouterConfig[index].path
-  const myPathText = myRouterConfig[index].text
+  let myPath;
+  let myPathText;
+  try {
+    myPath = myRouterConfig[index].path
+    myPathText = myRouterConfig[index].text
+  } catch (error) {
+    throw new Error('pages 下的文件为了设置路由')
+  }
   // 通过 自己配置的 path 去匹配 requireArr 的 key；
   const key = requireArr.find(item => item.indexOf(myPath) !== -1)
   // 根据 key 去获取组件
