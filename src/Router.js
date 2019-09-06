@@ -49,9 +49,9 @@ export const myRouterConfig = [
     text: '测试',
   },
   {
-    path: '/obj',
+    path: '/morerouter',
     icon: 'laptop',
-    text: '对象',
+    text: '多级路由',
   },
 ]
 const requireContext = require.context('./pages', true, /^\.\/.*\/index\.jsx$/)

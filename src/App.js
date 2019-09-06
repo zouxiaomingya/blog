@@ -8,8 +8,23 @@ import Side from './layout/Side.jsx';
 import Page404 from './pages/Page404';
 
 import { routerConfig } from './Router'
-
+import AAA from './pages/morerouter/AAA'
+import BBB from './pages/morerouter/BBB'
 const { Content } = Layout;
+
+const routerConfig1 = [
+  {
+    path: "/morerouter/a",
+    text: 'AA',
+    component: AAA,
+  },
+  {
+    path: "/morerouter/b",
+    text: 'BB',
+    component: BBB,
+
+  },
+]
 function App() {
   return (
     <BrowserRouter>
@@ -28,9 +43,14 @@ function App() {
             >
               <Switch>
                 <Redirect exact from='/' to='/home' />
+                <Redirect exact from='/morerouter' to='/morerouter/a' />
                 {routerConfig.map(({ path, component }) => (
                   <Route exact key={path} path={path} component={component} />
                 ))}
+                {routerConfig1.map(({ path, component }) => (
+                  <Route exact key={path} path={path} component={component} />
+                ))}
+                
                 <Route component={Page404} />
               </Switch>
             </Content>
