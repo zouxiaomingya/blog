@@ -6,11 +6,12 @@ import { Link, withRouter } from "react-router-dom";
 const { Sider } = Layout;
 function Side({ location, routerConfig }) {
   const { pathname } = location;
+  const filterPathName = `/${pathname.split('/')[1]}`
   return (
     <Sider width={200} style={{ background: '#fff' }}>
       <Menu
         mode="inline"
-        selectedKeys={[pathname]}
+        selectedKeys={[filterPathName]}
         style={{ height: '100%', borderRight: 0 }}
       >
         {routerConfig.map((item) => (

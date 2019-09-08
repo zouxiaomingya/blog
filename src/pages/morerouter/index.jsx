@@ -17,10 +17,12 @@ const routerConfig = [
 
   },
 ]
-function MoreRouter(props) {
+function MoreRouter({ location }) {
+  const { pathname } = location
   return (
     <div>
       <Menu
+        selectedKeys={[pathname]}
         mode="horizontal"
       >
         {routerConfig.map((item) => (
@@ -31,7 +33,7 @@ function MoreRouter(props) {
           </Menu.Item>
         ))}
       </Menu>
-     
+
     </div>
   )
 }
