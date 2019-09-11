@@ -49,12 +49,6 @@ function MoreRouter({ location }) {
         path={'/morerouter'}
         render={() => <h3>Please select a topic.</h3>}
       />
-      {/* <Switch>
-        {routerConfig.map(({ path, component }) => (
-          <Route exact key={path} path={path} component={component} />
-        ))}
-      </Switch> */}
-
     </div>
   )
 } 
@@ -64,9 +58,6 @@ function Topic(props) {
   return (
     <div>
       <h3>{match.params.topicId}</h3>
-      {/* <Route path={match.url} component={AAA} /> */}
-      {/* <Route path={match.url} component={BBB} /> */}
-
     </div>
   );
 }
