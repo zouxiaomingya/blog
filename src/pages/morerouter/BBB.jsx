@@ -3,7 +3,7 @@ import Header from './index';
 function BBB() {
   return (
     <div>
-      <Header />
+      {/* <Header /> */}
       <div>bbbbb</div>
     </div>
   )

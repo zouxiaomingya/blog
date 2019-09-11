@@ -10,7 +10,6 @@ function AAA() {
   }
   return (
     <div>
-      <Header />
       <div>aaaaa</div>
       <Tabs defaultActiveKey="1" onChange={callback}>
         <TabPane tab="选项1" key="1">
