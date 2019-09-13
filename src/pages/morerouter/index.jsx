@@ -52,14 +52,14 @@ function MoreRouter({ location }) {
     </div>
   )
 } 
-function Topic(props) {
-  const { match } = props;
-  console.log(props)
-  return (
-    <div>
-      <h3>{match.params.topicId}</h3>
-    </div>
-  );
-}
+// function Topic(props) {
+//   const { match } = props;
+//   console.log(props)
+//   return (
+//     <div>
+//       <h3>{match.params.topicId}</h3>
+//     </div>
+//   );
+// }
 
 export default withRouter(MoreRouter);
