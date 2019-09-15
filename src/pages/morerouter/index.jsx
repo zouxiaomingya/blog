@@ -33,7 +33,7 @@ function MoreRouter({ location }) {
           </Menu.Item>
         ))}
       </Menu>
-      {/* <Route path={'/morerouter/:topicId'} component={Topic} /> */}
+      <Route path={'/morerouter/:topicId'} component={Topic} />
       <Route
         exact
         path={'/morerouter/a'}
