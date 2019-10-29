@@ -53,6 +53,11 @@ export const myRouterConfig = [
     icon: 'laptop',
     text: '多级路由',
   },
+  {
+    path: '/classComponent',
+    icon: 'laptop',
+    text: 'setState同步？',
+  },
 ]
 const requireContext = require.context('./pages', true, /^\.\/.*\/index\.jsx$/)
 let config = [];
