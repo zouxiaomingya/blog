@@ -38,6 +38,7 @@ class Test extends Component{
                     对状态队列进行合并时，之前对 this.state 的修改将会被忽略，造成无法预知的错误。
                     React通过状态队列机制实现了 setState 的异步更新，避免重复的更新 state。
                 </p>
+                <a href="https://github.com/sisterAn/blog/issues/26">github 详细介绍地址</a>
             </div>
         )
     }
