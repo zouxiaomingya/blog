@@ -58,6 +58,11 @@ export const myRouterConfig = [
     icon: 'laptop',
     text: 'setState同步？',
   },
+  {
+    path: '/connect',
+    icon: 'laptop',
+    text: '全局状态管理',
+  },
 ]
 const requireContext = require.context('./pages', true, /^\.\/.*\/index\.jsx$/)
 let config = [];
