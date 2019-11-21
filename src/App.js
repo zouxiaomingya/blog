@@ -12,7 +12,8 @@ const Provider = createProvider();
 
 function App() {
   const initail = {
-    userName: 'xiaoming'
+    userName: 'xiaoming',
+    age: 18,
   };
   return (
     <Provider value={initail}>

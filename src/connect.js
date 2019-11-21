@@ -20,9 +20,9 @@ const createProvide = () => {
 export const connect = fn => ComponentUi => () => (
   <Consumer>
     {state => {
-      const valueObj = typeof fn === "function" ? fn(state) : state;
-      const { _state, _dispatch } = valueObj;
-      return <ComponentUi _state={_state} _dispatch={_dispatch} />;
+      const { _state, _dispatch } = state
+      const filterState = typeof fn === "function" ? fn(_state) : _state;
+      return <ComponentUi _state={filterState} _dispatch={_dispatch} />;
     }}
   </Consumer>
 );

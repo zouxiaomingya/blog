@@ -6,6 +6,7 @@ import { connect } from '../../connect'
 
 const { Option } = Select;
 function Show({ _state, _dispatch }) {
+    console.log(_state);
     const { userName } = _state;
     return (
         <Fragment>
@@ -28,4 +29,8 @@ function Show({ _state, _dispatch }) {
         </Fragment>
     )
 }
-export default connect()(Show);
+export default connect((state)=>{
+    return {
+        userName: state.userName,
+    }
+})(Show);
