@@ -1,14 +1,20 @@
-import React, { Fragment}  from 'react';
+import React, { Fragment } from 'react';
 import Monaco from '../../common/Monaco';
 import { code } from './code'
-
-function Show() {
+import { connect } from '../../connect'
+function Show({ _state, _dispatch }) {
+  const { userName } = _state;
   return (
     <Fragment>
-      <h2 style={{textAlign:'center'}}>工程化导入模块</h2>
+      <h2 style={{ textAlign: 'center' }}>工程化导入模块</h2>
       <Monaco code={code} />
+      <div onClick={() => {
+        _dispatch(state => {
+          state.userName = 'xiaoming'
+        })
+      }}>{userName}</div>
       <hr />
     </Fragment>
   )
 }
-export default Show;
+export default connect()(Show);
