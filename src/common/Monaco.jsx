@@ -1,6 +1,7 @@
 import React, { useRef, useEffect, memo} from 'react';
 import * as monaco from 'monaco-editor/esm/vs/editor/editor.api.js';
 import * as languageObj from 'monaco-editor/min/vs/basic-languages/typescript/typescript';
+import 'monaco-editor/esm/vs/editor/contrib/find/findController.js';
 monaco.languages.register({ id: 'typescript' })
 monaco.languages.setMonarchTokensProvider('typescript',languageObj.language)
 function Monaco({ code }) {
