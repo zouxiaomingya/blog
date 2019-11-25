@@ -1,5 +1,5 @@
 'use strict';
-
+const MonacoWebpackPlugin = require('monaco-editor-webpack-plugin');
 const fs = require('fs');
 const isWsl = require('is-wsl');
 const path = require('path');
@@ -139,6 +139,8 @@ module.exports = function(webpackEnv) {
       // the line below with these two lines if you prefer the stock client:
       // require.resolve('webpack-dev-server/client') + '?/',
       // require.resolve('webpack/hot/dev-server'),
+      'monaco-editor/esm/vs/editor/editor.worker.js',
+      'monaco-editor/esm/vs/language/typescript/ts.worker',
       isEnvDevelopment &&
         require.resolve('react-dev-utils/webpackHotDevClient'),
       // Finally, this is your app's code:
@@ -475,6 +477,7 @@ module.exports = function(webpackEnv) {
       ],
     },
     plugins: [
+      new MonacoWebpackPlugin(),
       // Generates an `index.html` file with the <script> injected.
       new HtmlWebpackPlugin(
         Object.assign(
