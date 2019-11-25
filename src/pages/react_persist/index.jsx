@@ -15,7 +15,7 @@ function EventDemo() {
         code={
 `onChange(e) {
   e.persist();
-  thi˝s.setState((prevState, props) => {
+  this.setState((prevState, props) => {
     return {
       username: e.target.value
     }
