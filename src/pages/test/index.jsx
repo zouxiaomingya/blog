@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { Input } from "antd";
 import Monaco from "../../common/Monaco";
 import { code } from "./code";
@@ -16,13 +16,14 @@ const RenderOutInput = () => {
 };
 
 function App() {
+  console.log(1);
   const [count, setCount] = useState(1);
-  const [value, setValue] = useState("");
   let name, setName, age, setAge;
   const handleAdd = () => {
     setCount(count + 1);
   };
-  const RenderInput = () => {
+  const RenderInput = useCallback(() => {
+    const [value, setValue] = useState("");
     return (
       <Input
         value={value}
@@ -31,12 +32,12 @@ function App() {
         }}
       />
     );
-  };
+  }, []);
   return (
     <div>
       函数调用{RenderInput()}
       组件调用
-      <RenderInput />
+      <RenderInput/>
       函数外的函数调用{RenderOutInput()}
       函数内的函数调用
       <RenderOutInput />
