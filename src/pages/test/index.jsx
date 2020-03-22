@@ -22,8 +22,9 @@ function App() {
   const handleAdd = () => {
     setCount(count + 1);
   };
+  const [value, setValue] = useState("");
+
   const RenderInput = useCallback(() => {
-    const [value, setValue] = useState("");
     return (
       <Input
         value={value}
