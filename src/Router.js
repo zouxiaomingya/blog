@@ -68,6 +68,11 @@ export const myRouterConfig = [
     icon: 'laptop',
     text: 'react ref',
   },
+  {
+    path: '/usePre',
+    icon: 'laptop',
+    text: '上一个状态',
+  },
 ]
 const requireContext = require.context('./pages', true, /^\.\/.*\/index\.jsx$/)
 let config = [];

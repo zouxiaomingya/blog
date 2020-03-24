@@ -10,22 +10,34 @@ class Read extends Component {
     }
     this.add = this.add.bind(this);
   }
+  componentDidMount() {
+    for (let i = 0; i < 20000; i++) {
+      // setTimeout(() => {
+      //   this.add()
+      // }, 0.1 * i)
+    }
+  }
   add() {
-    this.setState({num:this.state.num + 1}, (...rest) => {
+    this.setState({ num: this.state.num + 1 }, (...rest) => {
       console.log(this.state.num, '<<<');
     });
     // var time = new Date().getTime()
     // while( new Date().getTime() - time < 1000){
     //   console.log(11)
     // }
-    console.log(this.state.num);
-    this.setState({num:this.state.num + 1},  (...rest) => {
-      console.log(this.state.num, '<<<<');
-    });
-    console.log(this.state.num);
+    // console.log(this.state.num);
+    // this.setState({num:this.state.num + 1},  (...rest) => {
+    //   console.log(this.state.num, '<<<<');
+    // });
+    // console.log(this.state.num);
   }
   render() {
-    return <div onClick={this.add}>w1212</div>
+    return (
+      <div>
+        <div>{this.state.num}</div>
+        <button onClick={this.add}>+1</button>
+      </div>
+    )
   }
 }
 // function Read() {
