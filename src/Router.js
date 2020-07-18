@@ -85,7 +85,7 @@ requireArr.forEach((_key, index) => {
     myPath = myRouterConfig[index].path
     myPathText = myRouterConfig[index].text
   } catch (error) {
-    throw new Error('pages 下的文件为了设置路由')
+    throw new Error('pages 下的文件未设置路由')
   }
   // 通过 自己配置的 path 去匹配 requireArr 的 key；
   const key = requireArr.find(item => item.indexOf(myPath) !== -1)
