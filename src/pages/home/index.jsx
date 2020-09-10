@@ -2,11 +2,21 @@ import React, { useEffect, useState } from 'react';
 import { Button } from 'zent';
 
 function checkTime(i) {
-  if (i <= 10) {
+  if (i < 10) {
     i = "0" + i;
   }
   return i;
 }
+function checkTime2(i) {
+  if (i < 100) {
+    i = "00" + i;
+  }
+  if (i < 10) {
+    i = "000" + i;
+  }
+  return i;
+}
+
 
 // 7天后
 const timeOver = 1599759357313 + 365 * 24 * 60 * 60 * 1000
@@ -23,7 +33,7 @@ function Home() {
       var mm = parseInt(ts / 1000 / 60 % 60, 10);//计算剩余的分钟数
       var ss = parseInt(ts / 1000 % 60, 10);//计算剩余的秒数
       var ms = parseInt(ts % 1000, 10);//计算剩余的ms数
-      setTime(`${dd}天${hh}小时${mm}分钟${ss}`)
+      setTime(`${dd}天${checkTime(hh)}小时${checkTime(mm)}分钟${checkTime(ss)}秒${checkTime2(ms)}`)
     }, 1000 / 60)
 
     return () => {
