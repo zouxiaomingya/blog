@@ -136,6 +136,7 @@
     ]
   },
   "devDependencies": {
-    "monaco-editor-webpack-plugin": "^1.7.0"
+    "monaco-editor-webpack-plugin": "1.7.0",
+    "zent": "^8.5.7"
   }
 }

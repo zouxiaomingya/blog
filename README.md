@@ -1,3 +1,5 @@
+### 安包
+> 使用 yarn 来安装
 ### 项目技术
 > react + antd + react-router 
 

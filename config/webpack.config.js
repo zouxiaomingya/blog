@@ -1,5 +1,5 @@
 'use strict';
-const MonacoWebpackPlugin = require('monaco-editor-webpack-plugin');
+// const MonacoWebpackPlugin = require('monaco-editor-webpack-plugin');
 const fs = require('fs');
 const isWsl = require('is-wsl');
 const path = require('path');
@@ -477,7 +477,7 @@ module.exports = function(webpackEnv) {
       ],
     },
     plugins: [
-      new MonacoWebpackPlugin(),
+      // new MonacoWebpackPlugin(),
       // Generates an `index.html` file with the <script> injected.
       new HtmlWebpackPlugin(
         Object.assign(
